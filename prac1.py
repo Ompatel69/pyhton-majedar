@@ -1,9 +1,27 @@
-from collections import Counter
-x = 0
-n = 0
-sizes = [2, 3, 4, 5, 6, 8, 7, 6, 5, 18] #shoe size hai aur kitna quantity meh hai yeh likha hai 5 number ka do shoes hai baki ka 1 and etc
-print(Counter(sizes))
-print(Counter(sizes).items())
-l1 = [[6, 55],[6, 45],[6, 55],[4, 40],[18, 60],[10, 50]]
-print(Counter(l1).keys())
+if __name__ == '__main__':
+    try:
+        # Read the number of integers
+        n = int(input("Enter the number of elements: "))
+        
+        # Check if n is a positive integer
+        if n <= 0:
+            raise ValueError("The number of elements must be a positive integer.")
 
+        # Read the integers as a list of strings
+        integer_list = list(map(int, input().split()))
+
+        # Validate if the number of integers matches n
+        if len(integer_list) != n:
+            raise ValueError(f"Expected {n} integers, but got {len(integer_list)}.")
+
+        # Convert the list of strings to a list of integers
+        integer_list = list(map(int, integer_list))
+
+        # Convert the list of integers to a tuple
+        tup = tuple(integer_list)
+
+        # Print the hash of the tuple
+        print(hash(tup))
+
+    except ValueError as e:
+        print(f"Invalid input: {e}")
